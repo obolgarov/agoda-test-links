@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Link Test Page</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                font-family:
+                    system-ui,
+                    -apple-system,
+                    sans-serif;
+                background: #f4f4f5;
+                color: #18181b;
+                padding: 2rem;
+            }
+
+            h1 {
+                margin-bottom: 2rem;
+                font-size: 1.75rem;
+            }
+
+            .links {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .link {
+                display: block;
+                width: 100%;
+                padding: 0.9rem 1.25rem;
+                font-size: 1rem;
+                text-align: center;
+                color: #fff;
+                background: #2563eb;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background 0.15s ease;
+            }
+
+            .link:hover {
+                background: #1d4ed8;
+            }
+
+            .link:active {
+                background: #1e40af;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Agoda Link Test Page</h1>
+
+        <div class="links">
+            <button
+                class="link"
+                onclick="
+                    goTo(
+                        'https://www.agoda.com/partners/partnersearch.aspx?cid=1951235&label=stay22&city=9933&hid=2462850',
+                    )
+                "
+            >
+                partnersearch.aspx?hid=[hid]
+            </button>
+            <button
+                class="link"
+                onclick="
+                    goTo(
+                        'https://www.agoda.com/partners/partnersearch.aspx?cid=1951235&label=stay22&city=9933&selectedproperty=2462850',
+                    )
+                "
+            >
+                partnersearch.aspx?selectedproperty=[hid]
+            </button>
+            <button
+                class="link"
+                onclick="
+                    goTo('https://www.agoda.com/h6718824/hotel/riyadh-sa.html')
+                "
+            >
+                hotel slug
+            </button>
+            <button
+                class="link"
+                onclick="
+                    goTo(
+                        'https://www.agoda.com/pages/agoda/default/page_hotel.aspx?hotel_id=2462850&cid=1951235&tag=travelswitheden_hdp',
+                    )
+                "
+            >
+                page_hotel.aspx?hotel_id=[hid]
+            </button>
+            <button
+                class="link"
+                onclick="
+                    goTo(
+                        'https://www.agoda.com/search?cid=1951235&city=9933&selectedproperty=2462850&tag=travelswitheden_psrp',
+                    )
+                "
+            >
+                /search?selectedproperty=[hid]
+            </button>
+            <button
+                class="link"
+                onclick="
+                    goTo(
+                        'agoda://hotel/2462850?affiliate_id=1951235&label=CLICKID22',
+                    )
+                "
+            >
+                agoda://hotel/[hid]
+            </button>
+            <button
+                class="link"
+                onclick="goTo('agoda://hotel/whatever/2462850?site_id=1951235')"
+            >
+                agoda://hotel/whatever/[hid]
+            </button>
+            <button
+                class="link"
+                onclick="
+                    goTo(
+                        'intent://www.agoda.com/partners/partnersearch.aspx?cid=1951235&label=stay22&city=9933&hid=2462850#Intent;scheme=https;package=com.agoda.mobile.consumer;S.browser_fallback_url=https%3A%2F%2Fwww.agoda.com%2Fpartners%2Fpartnersearch.aspx%3Fcid%3D1951235%26label%3Dstay22%26city%3D9933%26hid%3D2462850;end',
+                    )
+                "
+            >
+                intent:// partnersearch.aspx?hid=[hid]
+            </button>
+            <button
+                class="link"
+                onclick="
+                    goTo(
+                        'intent://www.agoda.com/partners/partnersearch.aspx?cid=1951235&label=stay22&city=9933&selectedproperty=2462850#Intent;scheme=https;package=com.agoda.mobile.consumer;S.browser_fallback_url=https%3A%2F%2Fwww.agoda.com%2Fpartners%2Fpartnersearch.aspx%3Fcid%3D1951235%26label%3Dstay22%26city%3D9933%26selectedproperty%3D2462850;end',
+                    )
+                "
+            >
+                intent:// partnersearch.aspx?selectedproperty=[hid]
+            </button>
+            <button
+                class="link"
+                onclick="
+                    goTo(
+                        'intent://www.agoda.com/partners/partnersearch.aspx?cid=1951235&label=stay22&city=9933#Intent;scheme=https;package=com.agoda.mobile.consumer;S.browser_fallback_url=https%3A%2F%2Fwww.agoda.com%2Fpartners%2Fpartnersearch.aspx%3Fcid%3D1951235%26label%3Dstay22%26city%3D9933;end',
+                    )
+                "
+            >
+                intent:// partnersearch.aspx?city=[city-id] (no hid)
+            </button>
+            <button
+                class="link"
+                onclick="
+                    goTo(
+                        'intent://www.agoda.com/hotel-saint-andre_2/hotel/montreal-qc-ca.html?cid=1951235&tag=travelswitheden_hdp#Intent;scheme=https;package=com.agoda.mobile.consumer;S.browser_fallback_url=https%3A%2F%2Fwww.agoda.com%2Fhotel-saint-andre_2%2Fhotel%2Fmontreal-qc-ca.html%3Fcid%3D1951235%26tag%3Dtravelswitheden_hdp;end',
+                    )
+                "
+            >
+                intent:// hotel slug
+            </button>
+            <button
+                class="link"
+                onclick="
+                    goTo(
+                        'intent://www.agoda.com/pages/agoda/default/page_hotel.aspx?hotel_id=2462850&cid=1951235&tag=travelswitheden_hdp#Intent;scheme=https;package=com.agoda.mobile.consumer;S.browser_fallback_url=https%3A%2F%2Fwww.agoda.com%2Fpages%2Fagoda%2Fdefault%2Fpage_hotel.aspx%3Fhotel_id%3D2462850%26cid%3D1951235%26tag%3Dtravelswitheden_hdp;end',
+                    )
+                "
+            >
+                intent:// page_hotel.aspx
+            </button>
+        </div>
+
+        <script>
+            function goTo(url) {
+                window.location.href = url;
+            }
+        </script>
+    </body>
+</html>
